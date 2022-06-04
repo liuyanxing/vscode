@@ -1,0 +1,72 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "startup",
+  "steps": [
+    {
+      "file": "src/main.js",
+      "description": "ready后调用onReady方法",
+      "line": 101,
+      "selection": {
+        "start": {
+          "line": 141,
+          "character": 26
+        },
+        "end": {
+          "line": 141,
+          "character": 35
+        }
+      }
+    },
+    {
+      "file": "src/main.js",
+      "description": "获取nlsConfig，调用startup",
+      "line": 135
+    },
+    {
+      "file": "src/main.js",
+      "description": "加载执行vs/code/electron-main/main文件",
+      "line": 130
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "实例化CodeMain, 调用main进入主入口",
+      "line": 552
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "startup, 异常则退出",
+      "line": 76
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "创建service",
+      "line": 92
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "初始化需要初始化的service",
+      "line": 98
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "todo",
+      "line": 116
+    },
+    {
+      "file": "src/vs/code/electron-main/main.ts",
+      "description": "实例化CodeApplication, 调用其startup",
+      "line": 133
+    },
+    {
+      "file": "src/vs/code/electron-main/app.ts",
+      "description": "CodeApplication",
+      "line": 112
+    },
+    {
+      "file": "src/vs/code/electron-main/app.ts",
+      "description": "startup",
+      "line": 473
+    }
+  ],
+  "ref": "lyx_note"
+}
