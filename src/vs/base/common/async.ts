@@ -162,6 +162,12 @@ export interface ITask<T> {
  * 			throttler.queue(deliver);
  * 		}
  */
+
+/*
+	在一个promise执行期间产生的任务都暂不执行，等这个promise好了
+	再一次把这期间产生的任务执行完，任务在执行之前要清空，任务本身不是
+	promsie
+*/
 export class Throttler {
 
 	private activePromise: Promise<any> | null;
@@ -212,6 +218,7 @@ export class Throttler {
 	}
 }
 
+// 按顺序执行promis
 export class Sequencer {
 
 	private current: Promise<unknown> = Promise.resolve(null);
@@ -221,6 +228,7 @@ export class Sequencer {
 	}
 }
 
+// 和sequenceer一样，可以传key
 export class SequencerByKey<TKey> {
 
 	private promiseMap = new Map<TKey, Promise<unknown>>();
@@ -244,6 +252,7 @@ interface IScheduledLater extends IDisposable {
 	isTriggered(): boolean;
 }
 
+// 延迟执行，返回的对象可以查询是否执行，可以取消执行
 const timeoutDeferred = (timeout: number, fn: () => void): IScheduledLater => {
 	let scheduled = true;
 	const handle = setTimeout(() => {
@@ -259,6 +268,7 @@ const timeoutDeferred = (timeout: number, fn: () => void): IScheduledLater => {
 	};
 };
 
+// 微任务延迟执行
 const microtaskDeferred = (fn: () => void): IScheduledLater => {
 	let scheduled = true;
 	queueMicrotask(() => {
